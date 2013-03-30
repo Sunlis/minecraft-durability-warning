@@ -14,7 +14,7 @@ import java.util.TimerTask;
  */
 public class DurabilityWarning{
 	
-	public final String dw_version = "1.4.6";
+	public final String dw_version = "2.4.6";
 	
 	public boolean dw_wood;
 	public boolean dw_stone;
@@ -284,18 +284,17 @@ public class DurabilityWarning{
 			
 			addChatMessage("\247"+codes[colours[0]]+"=[DW]= Durability Warning v"+v+" ===");
 			if (checkversion)
-				try
-			{
-				java.net.URL vurl = new java.net.URL("http://dl.dropbox.com/u/2601726/dw.txt");
 				try {
-					InputStream is = vurl.openStream();
-					String newest = new Scanner(is).useDelimiter("\\A").next();
-					if (!newest.equals(v))
-						addChatMessage("\247"+codes[colours[2]]+"=== There is a newer version ("+newest+") of DW available ===");
-				} catch (IOException e) {
+					java.net.URL vurl = new java.net.URL("https://raw.github.com/Sunlis/minecraft-durability-warning/master/latest");
+					try {
+						InputStream is = vurl.openStream();
+						String newest = new Scanner(is).useDelimiter("\\A").next();
+						if (!newest.equals(v))
+							addChatMessage("\247"+codes[colours[2]]+"=== There is a newer version ("+newest+") of DW available ===");
+					} catch (IOException e) {
+					}
+				} catch (java.net.MalformedURLException e) {
 				}
-			} catch (java.net.MalformedURLException e) {
-			}
 			addChatMessage("\247"+codes[colours[1]]+"=== "+dw_warnings.split(",").length+" warnings loaded ===");
 			in.close();
 			
@@ -329,4 +328,5 @@ public class DurabilityWarning{
 		return null;
 	}
 	
+}
 }
