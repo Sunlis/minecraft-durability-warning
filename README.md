@@ -2,6 +2,7 @@ minecraft-durability-warning
 ============================
 
 Mod for Minecraft that warns you when your tools run low.
+See [/releases](https://github.com/Sunlis/minecraft-durability-warning/tree/master/releases) for compiled versions of the mod.
 
 <h2>Usage</h2>
 
